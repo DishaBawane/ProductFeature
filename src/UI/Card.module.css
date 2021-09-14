@@ -1,0 +1,15 @@
+.card {
+ 
+        padding:1rem;
+        height: 170px;
+        object-fit: cover;
+        width: 573px;
+        border-radius: 10px;
+        box-shadow: 3px 6px 3px -2px rgb(0 0 0 / 40%), 0px 4px 5px rgb(0 0 0 / 50%),
+          -2px 3px 1px -1px rgb(0 0 0 / 40%);
+        background: #c4c4c4;
+        margin-bottom: 1rem;
+        margin: 2em auto;
+     
+  } 
+  

@@ -1,0 +1,57 @@
+.card {
+    height: 250px;
+    width: 573px;
+    background: #c4c4c4;
+    margin: 2em auto;
+    padding-bottom: 0.5em;
+  }
+  
+  .featurelist {
+      display: flex;
+      justify-content: space-evenly;
+   
+    }
+    .votetracker{
+      display:flex;
+      flex-direction: column;
+   
+    }
+    
+    /* .addvote {
+      width: 70px;
+      height: 54px;
+    }
+     */
+    .totalvotes {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 27px;
+      color: #000000;
+      /* padding-bottom: 2em; */
+    }
+    .feature {
+      
+      font-size: 14px;
+      line-height: 21px;
+      color: #000000;
+      width: 438px;
+      height: 105px;
+      text-align: justify;
+      text-justify: inter-word;
+      /* margin:auto; */
+      /* margin-bottom:20em;
+      margin-left: 5em; */
+    }
+    
+    .date{
+      float:right;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 21px;
+      color: #6A6A6A;
+     
+    }
+    
