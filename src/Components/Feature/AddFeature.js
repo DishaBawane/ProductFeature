@@ -1,20 +1,20 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import classes from "./Addfeature.module.css";
 import Card from "../../UI/Card";
 import Button from "../../UI/Button";
 
 const Addfeature = (props) => {
-  const [feature,setNewFeature]=useState('');
+  const [feature, setNewFeature] = useState("");
 
-  const addFeatureHandler=(event)=>{
+  const addFeatureHandler = (event) => {
     event.preventDefault();
     if (feature.trim().length === 0) {
       return;
     }
     props.onAddFeature(feature);
-    setNewFeature('');
+    setNewFeature("");
   };
-  
+
   const featureChangeHandler = (event) => {
     setNewFeature(event.target.value);
   };
@@ -39,4 +39,3 @@ const Addfeature = (props) => {
   );
 };
 export default Addfeature;
-

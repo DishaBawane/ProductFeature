@@ -13,15 +13,38 @@ function App() {
     setFeaturesList((prevFeaturesList) => {
       return [
         ...prevFeaturesList,
-        { feature: newFeature, id: Math.random().toString() },
+        { feature: newFeature, id: Math.random().toString(), voteCount: 1 },
       ];
     });
+  };
+  const addVoteHandler = (featureID) => {
+    console.log("Add",featureID);
+    const updatedFeatureList = featuresList.map((post)=>{
+      if(post.id === featureID){
+        return{...post,voteCount:post.voteCount+1}
+      }
+      return post;
+    })
+    setFeaturesList(updatedFeatureList);
+  
+  };
+  const deleteVoteHandler = (featureID) => {
+    console.log("delete",featureID);
+    alert("Do You want To delete");
+    const updatedFeatureList = featuresList.map((post)=>{
+      if(post.id === featureID){
+        return{...post,voteCount:post.voteCount-1}
+      }
+      return post;
+    })
+    setFeaturesList(updatedFeatureList);
+    
   };
   return (
     <Fragment>
       <Header />
       <AddFeature onAddFeature={addFeatureHandler} />
-      <PostFeature features={featuresList} />
+      <PostFeature features={featuresList} addVoteHandler={addVoteHandler} deleteVoteHandler={deleteVoteHandler}/>
     </Fragment>
   );
 }
