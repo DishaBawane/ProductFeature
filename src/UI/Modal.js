@@ -1,23 +1,16 @@
-import React, { Fragment } from "react";
-import Card from "./Card";
+import React from "react";
 import classes from "./Modal.module.css";
-const ErrorModal = (props) => {
-  return (
-    <Fragment>
-      <div className={classes.backdrop}></div>
-      <Card className={classes.modal}>
-        <header className={classes.header}/>
-          <h2>{props.title}</h2>
-          <div className={classes.content}>
-            <p>{props.message}</p>
-          </div>
-          <footer className={classes.actions}>
-            <button className={classes.okaybutton}>Okay</button>
-          </footer>
-     
-      </Card>
-    </Fragment>
+import { createPortal } from "react-dom";
+
+const Modal = (props) => {
+  return createPortal(
+    <div className={classes.modal}>
+      <p>Are You sure you want to dislikeVotes?</p>
+      <button type="submit" onClick={()=>props.onClose()} className={classes.button}>
+        Confirm
+      </button>
+    </div>,
+    document.querySelector("#modal")
   );
 };
-export default ErrorModal;
-
+export default Modal;

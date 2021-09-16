@@ -5,9 +5,14 @@ import AddFeature from "./Components/Feature/AddFeature";
 import PostFeature from "./Components/Feature/PostFeature";
 
 import Header from "./Components/Layout/Header";
+import Modal from "./UI/Modal";
+// import Modal from "./UI/Modal";
+
+
 
 function App() {
   const [featuresList, setFeaturesList] = useState([]);
+  const [showModal,setShowModal]=useState(false);
 
   const addFeatureHandler = (newFeature) => {
     setFeaturesList((prevFeaturesList) => {
@@ -28,9 +33,21 @@ function App() {
     setFeaturesList(updatedFeatureList);
   
   };
-  const deleteVoteHandler = (featureID) => {
-    console.log("delete",featureID);
-    alert("Do You want To delete");
+  // const deleteVoteHandler = (featureID) => {
+  //   console.log("delete",featureID);
+  //   // alert("Do You want To delete");
+  //   const updatedFeatureList = featuresList.map((post)=>{
+  //     if(post.id === featureID){
+  //       return{...post,voteCount:post.voteCount-1}
+  //     }
+  //     return post;
+  //   })
+  //   setFeaturesList(updatedFeatureList);
+    
+  // };
+ 
+  const openModal = (featureID)=>{
+    setShowModal(true);
     const updatedFeatureList = featuresList.map((post)=>{
       if(post.id === featureID){
         return{...post,voteCount:post.voteCount-1}
@@ -38,13 +55,32 @@ function App() {
       return post;
     })
     setFeaturesList(updatedFeatureList);
-    
-  };
+
+  }
+
+  const closeModel=()=>{
+    setShowModal(false);
+
+    // const updatedFeatureList = featuresList.map((post)=>{
+    //   if(post.id === featureID){
+    //     return{...post,voteCount:post.voteCount-1}
+    //   }
+    //   return post;
+    // })
+    // setFeaturesList(updatedFeatureList);
+
+  }
+
+
+
   return (
+
     <Fragment>
       <Header />
+      { showModal && <Modal onClose={closeModel}/>}
       <AddFeature onAddFeature={addFeatureHandler} />
-      <PostFeature features={featuresList} addVoteHandler={addVoteHandler} deleteVoteHandler={deleteVoteHandler}/>
+   
+      <PostFeature features={featuresList} addVoteHandler={addVoteHandler} deleteVoteHandler={openModal}/>
     </Fragment>
   );
 }

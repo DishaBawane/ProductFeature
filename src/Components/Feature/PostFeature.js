@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../../UI/Card";
 import classes from "./PostFeature.module.css";
+// import Modal from "../../UI/Modal";
 
 
 const PostFeature = (props) => {
@@ -13,6 +14,7 @@ const PostFeature = (props) => {
 
   return (
     <div>
+     
       {props.features.sort((a,b)=>(a.voteCount > b.voteCount ? -1 : 1)).map((feature) => (
         <Card key={feature.id}>
           <div className={classes.featurelist}>
@@ -32,8 +34,10 @@ const PostFeature = (props) => {
             {year}-{month < 10 ? `0${month}` : `${month}`}-{date}
           </div>
         </Card>
+        
       ))}
-    </div>
+     
+     </div>
   );
 };
 export default PostFeature;
